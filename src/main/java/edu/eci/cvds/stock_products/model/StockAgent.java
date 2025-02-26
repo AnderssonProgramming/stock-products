@@ -1,5 +1,5 @@
 package edu.eci.cvds.stock_products.model;
 
-public class StockAgent {
-    
-}
+public interface StockAgent {
+    void notify(ProductModel product);
+} 

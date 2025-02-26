@@ -173,8 +173,46 @@ Se vería algo así:
 ## TDD 
 Luego de tener el diseño estipulado con los atributos y métodos. Ahora, para implementar este caso de negocio, es necesario primero hacer las pruebas para todas las clases, para luego implementar el código para que las pruebas pasen.
 
+Luego de implementar las pruebas, vemos que ninguna sirve por lo que todavía no está implementada la lógica de cada clase o interfaz.
+
+![alt text](image-7.png)
 
 
+Ahora, sí se hace la implementación necesaria para que las pruebas pasen.
+
+Al momento que le di mvn clean package me marcaron estos errores:
+![alt text](image-8.png)
+Se solucionaron mirando cada error, y corregirlo en la clase de pruebas correspondiente.
+
+![alt text](image-9.png)
+
+## REPORTE DE JACOCO con JUNIT
+Se evidencia la cobertura de pruebas al 89%
+![alt text](image-10.png)
+La clase que aparece 0, es la que por defecto crea cuando se genera el proyecto. Por eso no tiene pruebas.
+
+## CONFIGURACIÓN CON SONARCLOUD
+Primero, se crea la cuenta en SonarCloud con GitHub, ahora, se crea una organización en Sonarcloud, luego, se genera un token, y con ese TOKEN, se pone este comando en consola para que genere el análisis estático y el reporte de calidad de código.
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+Se le da opción free
+Y se analiza el proyecto
+
+![alt text](image-13.png) 
+Se le da en set up
+
+![alt text](image-14.png)
+
+Y create project
+
+Se espera mientras se analiza el código
+
+![alt text](image-15.png)
+
+Y se mira el reporte que genera:
+![alt text](image-16.png)
 
 
 #####  ES IMPORTANTE RECORDAR QUE:
@@ -194,6 +232,3 @@ HECHO
 4. EL proyecto debe tener análisis de cobertura con Jacoco mínimo al 80%
 
 HECHO
-
-### Bono
-- Integrarlo con SonarCloud para generar reporte de calidad de código y análisis estático
