@@ -113,7 +113,7 @@ Se agrega esto dentro de plugins
 			</plugin>
 ```
 
-
+## ENUNCIADO
 ## NECESIDAD DEL CLIENTE
 El cliente necesita un sistema de monitoreo de stock de productos, el cual le permita agregar productos nuevos y actualizar la cantidad de productos disponibles. Adicionalmente cada vez que un producto sea actualizado es necesario que se notifique a los dos agentes que serán implementados; Para los agentes es necesario tener en cuenta las siguientes características, el primero deberá escribir en el stdout las unidades disponibles y el segundo agente deberá escribir en el stdout si hay menos de 5 unidades disponibles lo cual generará una alerta. 
 ## REQUERIMIENTO
@@ -137,12 +137,63 @@ Ejemplo:
 ## DESCRIPCIÓN DEL PROYECTO
 Se debe crear un repositorio en GitHub el cual debe tener un proyecto maven que funcione con spring-boot, este proyecto deberá darle solución a los requerimientos del cliente y seguir los principios SOLID. Se debe implementar por lo menos un patrón de diseño, usar la inyección de dependencias para instaciar objetos y es necesario Que las pruebas de unidad reflejen el correcto funcionamiento de los agentes.
 
+
+
+## DISEÑO
+Luego de analizar el caso de uso que hay que implementar, aplicaré el patrón de diseño *Observer* de comportamiento, el cual consiste en crear una interfaz StockAgent la cual tiene un método **notify**, y los dos tipos de agente implementarán esa interfaz, donde cada una implementa **notify** de acuerdo al stdout que especifica este proyecto.
+
+En otras palabras, este patrón permite definir un mecanismo de suscripción para notificar a varios objetos sobre cualquier evento que le suceda al objeto que están observando.
+
+También, este patrón tiene tanto pros como contras.
+- Pros: Aplica el principio SOLID (O).Principio de abierto/cerrado, ya que, se crean nuevas clases sin necesidad de cambiar el código de la notificadora o la interfaz.
+
+- Contras: Las clases suscriptoras a la interfaz notifican en un orden aleatorio.
+
+**Referencia** = https://refactoring.guru/es/design-patterns/observer
+
+
+Se vería algo así:
+
+- Capa modelo
+![alt text](image-4.png)
+
+- Capa servicio
+
+![alt text](image-5.png)
+
+- Capa repositorio
+
+![alt text](image-6.png)
+
+
+- Capa controlador: En este caso no se usa porque no hay ningún requisito para hacer endpoints o para crear una API Rest en este proyecto, solo se implementa lo más básico.
+
+
+
+## TDD 
+Luego de tener el diseño estipulado con los atributos y métodos. Ahora, para implementar este caso de negocio, es necesario primero hacer las pruebas para todas las clases, para luego implementar el código para que las pruebas pasen.
+
+
+
+
+
 #####  ES IMPORTANTE RECORDAR QUE:
 
-1. El almacenamiento puede ser en estructuras en memoria como Listas, Mapas, etc
+1. El almacenamiento puede ser en estructuras en memoria como Listas, Mapas, etc.
+
+EN ESTE PROYECTO SE USA Map<String,ProductModel> para mapear todos los productos estipulados con su nombre, precio, cantidad y categoría, y también List<StockAgent> para tener como lista todos los agentes de acuerdo a la interfaz.
+
 2. Se debe subir el link del proyecto en el espacio de campus virtual.
+
+HECHO
+
 3. El proyecto debe contar con el diseño documentado en el readme del repositorio y debe terner capturas de pantalla mostrando su funcionamiento.
+
+HECHO
+
 4. EL proyecto debe tener análisis de cobertura con Jacoco mínimo al 80%
+
+HECHO
 
 ### Bono
 - Integrarlo con SonarCloud para generar reporte de calidad de código y análisis estático
