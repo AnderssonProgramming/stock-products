@@ -14,15 +14,15 @@ Como primera medida se configura el repo, en este caso con el nombre de stock-pr
 
 # CREACIÓN DE PROYECTO MAVEN
 Usando spring initializr se crea el proyecto
-![alt text](image.png)
+![alt text](assets/image.png)
 
 En este caso, el proyecto maven se creó con la versión 21 porque es la que tiene instalada la máquina
-![alt text](image-1.png)
+![alt text](assets/image-1.png)
 
 # VISTA DEL PROYECTO
 Después de generar el proyecto, se sincroniza con el repo de git, simplemente con un git clone y luego se copia y se pega la estructura que se generó en spring, en la carpeta cuando se clona el repo.
 
-![alt text](image-2.png)
+![alt text](assets/image-2.png)
 
 # CONFIGURACIÓN DE SONARQUBE, JACOCO, JUNIT en el pom.xml
 
@@ -155,15 +155,15 @@ También, este patrón tiene tanto pros como contras.
 Se vería algo así:
 
 - Capa modelo
-![alt text](image-4.png)
+![alt text](assets/image-4.png)
 
 - Capa servicio
 
-![alt text](image-5.png)
+![alt text](assets/image-5.png)
 
 - Capa repositorio
 
-![alt text](image-6.png)
+![alt text](assets/image-6.png)
 
 
 - Capa controlador: En este caso no se usa porque no hay ningún requisito para hacer endpoints o para crear una API Rest en este proyecto, solo se implementa lo más básico.
@@ -175,44 +175,44 @@ Luego de tener el diseño estipulado con los atributos y métodos. Ahora, para i
 
 Luego de implementar las pruebas, vemos que ninguna sirve por lo que todavía no está implementada la lógica de cada clase o interfaz.
 
-![alt text](image-7.png)
+![alt text](assets/image-7.png)
 
 
 Ahora, sí se hace la implementación necesaria para que las pruebas pasen.
 
 Al momento que le di mvn clean package me marcaron estos errores:
-![alt text](image-8.png)
+![alt text](assets/image-8.png)
 Se solucionaron mirando cada error, y corregirlo en la clase de pruebas correspondiente.
 
-![alt text](image-9.png)
+![alt text](assets/image-9.png)
 
 ## REPORTE DE JACOCO con JUNIT
 Se evidencia la cobertura de pruebas al 89%
-![alt text](image-10.png)
+![alt text](assets/image-10.png)
 La clase que aparece 0, es la que por defecto crea cuando se genera el proyecto. Por eso no tiene pruebas.
 
 ## CONFIGURACIÓN CON SONARCLOUD
 Primero, se crea la cuenta en SonarCloud con GitHub, ahora, se crea una organización en Sonarcloud, luego, se genera un token, y con ese TOKEN, se pone este comando en consola para que genere el análisis estático y el reporte de calidad de código.
 
-![alt text](image-11.png)
+![alt text](assets/image-11.png)
 
-![alt text](image-12.png)
+![alt text](assets/image-12.png)
 Se le da opción free
 Y se analiza el proyecto
 
-![alt text](image-13.png) 
+![alt text](assets/image-13.png) 
 Se le da en set up
 
-![alt text](image-14.png)
+![alt text](assets/image-14.png)
 
 Y create project
 
 Se espera mientras se analiza el código
 
-![alt text](image-15.png)
+![alt text](assets/image-15.png)
 
 Y se mira el reporte que genera:
-![alt text](image-16.png)
+![alt text](assets/image-16.png)
 
 
 #####  ES IMPORTANTE RECORDAR QUE:
