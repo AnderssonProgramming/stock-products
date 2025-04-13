@@ -3,10 +3,10 @@ package edu.eci.cvds.stock_products.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.eci.cvds.stock_products.model.*;
+import edu.eci.cvds.stock_products.model.ProductModel;
+import edu.eci.cvds.stock_products.model.StockAgent;
 import edu.eci.cvds.stock_products.repository.ProductRepository;
 
 @Service
@@ -14,7 +14,6 @@ public class ProductService {
     private ProductRepository repository;
     private List<StockAgent> observers;
 
-    @Autowired
     public ProductService(ProductRepository repository) {
         this.repository = repository;
         this.observers = new ArrayList<>();

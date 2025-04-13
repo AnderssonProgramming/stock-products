@@ -1,14 +1,14 @@
 package edu.eci.cvds.stock_products.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class StockAgentTest {
+class StockAgentTest {
 
     @Test
-    public void testAgenteLog() {
+    void testAgenteLog() {
         LogAgent agente = new LogAgent();
         ProductModel producto = new ProductModel("PS5", 500.0, 8, "Consolas");
         agente.notify(producto);
@@ -16,7 +16,7 @@ public class StockAgentTest {
     }
     
     @Test
-    public void testAgenteAdvertencia() {
+    void testAgenteAdvertencia() {
         WarningAgent agente = new WarningAgent();
         ProductModel producto = new ProductModel("Xbox", 450.0, 3, "Consolas");
         agente.notify(producto);
